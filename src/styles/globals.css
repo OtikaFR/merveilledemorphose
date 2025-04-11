@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-x-hidden;
+    @apply no-scrollbar;
+    @apply bg-background;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: 'Quesha';
+    font-weight: normal;
+    font-style: normal;
+    src: url('/font/Quesha.woff2') format('woff2');
+  }
+
+  .great-scrollbar-y {
+    @apply overflow-y-auto;
+    @apply scrollbar;
+    @apply scrollbar-thumb-gray-300;
+    @apply scrollbar-w-2;
+    @apply scrollbar-thumb-rounded-full;
+    @apply scrollbar-track-rounded-full;
+    @apply scrollbar-corner-rounded;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+
+  .gradient-text{
+    background: -webkit-linear-gradient(90deg, #582D3E 0%, #DE5B30 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text2{
+    background: -webkit-linear-gradient(0deg, #DE5B30 0%, #582D3E 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-categories{
+    background: -webkit-linear-gradient(0deg, #A37C99 0%, #ECA683 50%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .embla__dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+  }
+  .embla__dot {
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .embla__dot:after {
+    box-shadow: inset 0 0 0 0.2rem rgba(25, 25, 25, 0.5);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    content: '';
+  }
+  .embla__dot--selected:after {
+    box-shadow: inset 0 0 0 0.2rem #DE5B30;
+  }
+
+  @media (max-width: 768px) { 
+    .embla__dot:after {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+    .embla__dot {
+      width: 2rem;
+      height: 2rem;
+    }
+    .arrow {
+      width: 24px !important
+    }
+  }
+
+  .embla-thumbs__slide__number {
+    border-radius: 1.8rem;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: rgb(192, 192, 192);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+    width: 100%;
+  }
+  .embla-thumbs__slide--selected .embla-thumbs__slide__number {
+    color: rgb(54, 49, 61);
+  }
+  
+ .menu {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: none;
+    min-width: 150px;
+    padding: 10px;
+    clip-path: inset(0px -100vw 0px 0px);
+  }
+
+  .menu:hover .dropdown {
+    display: block;
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .dropdown a:hover {
+    background: #f0f0f0;
+  }
+
+}
