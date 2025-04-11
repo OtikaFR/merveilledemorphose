@@ -21,32 +21,32 @@ import { Skeleton } from "@mui/material";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 
-// export async function getServerSideProps() {
-//   const result = await fetch(`${API_URL}/workshops`, GETRequest).then(r => r.json())
-//   const first = await fetch(`${API_URL}/catalog/homepage`, GETRequest).then(r => r.json())
+export async function getServerSideProps() {
+  const result = await fetch(`${API_URL}/workshops`, GETRequest).then(r => r.json())
+  const first = await fetch(`${API_URL}/catalog/homepage`, GETRequest).then(r => r.json())
 
-//   return {
-//       props: {
-//           workshops:result,
-//           first_products:first,
-//       }
-//   }
-// }
+  return {
+      props: {
+          workshops:result,
+          first_products:first,
+      }
+  }
+}
 
 const OPTIONS = { slidesToScroll: 'auto' }
 
-export default function Home() {
+export default function Home({first_products, workshops}) {
 
-  // const [workshopFetch, setWorkshopFetch] = useState(null)
-  // const [products, setProducts] = useState(null)
+  const [workshopFetch, setWorkshopFetch] = useState(null)
+  const [products, setProducts] = useState(null)
 
-  // useEffect(() => {
-  //   setProducts(first_products)
-  // }, [first_products])
+  useEffect(() => {
+    setProducts(first_products)
+  }, [first_products])
 
-  // useEffect(() => {
-  //   setWorkshopFetch(workshops)
-  // }, [workshops])
+  useEffect(() => {
+    setWorkshopFetch(workshops)
+  }, [workshops])
 
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS)
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
